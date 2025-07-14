@@ -63,23 +63,6 @@ function homebrew () {
     brew cleanup
 }
 
-function vscode-settings () {
-    SETTINGS_DIR="${HOME}/Library/Application Support/Code/User"
-    if ! [ -d "$SETTINGS_DIR" ]; then
-        echo "TODO"
-        # mkdir $SETTINGS_DIR
-    fi
-}
-
-function rustup-install () {
-    if ! which rustup &>/dev/null; then
-        echo "Select a custom rustup installation without adding to PATH"
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    else
-        echo "Rust is already installed."
-    fi
-}
-
 function run-stow () {
     cd ~/dotfiles
     stow .
@@ -99,6 +82,19 @@ function git-credentials () {
     git config --global commit.gpgsign true
     ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
     git config --global user.signingkey ~/.ssh/id_ed25519.pub
+}
+
+function vscode-settings () {
+    ln -sf "$HOME/.config/Code/User/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+}
+
+function rustup-install () {
+    if ! which rustup &>/dev/null; then
+        echo "Select a custom rustup installation without adding to PATH"
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    else
+        echo "Rust is already installed."
+    fi
 }
 
 function default-nushell () {
@@ -126,9 +122,6 @@ function main () {
     echo "🍺 HOMEBREW"
     homebrew
 
-    echo "📝 VSCODE SETTINGS"
-    vscode-settings
-
     echo "🦀 RUST"
     rustup-install
 
@@ -137,6 +130,9 @@ function main () {
 
     echo "🔐 GIT CREDENTIALS"
     git-credentials
+
+    echo "📝 VSCODE SETTINGS"
+    vscode-settings
 
     echo "🐚 DEFAULT NUSHELL"
     default-nushell
