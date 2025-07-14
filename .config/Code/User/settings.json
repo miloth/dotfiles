@@ -1,0 +1,16 @@
+{
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontLigatures": true,
+
+    "terminal.integrated.automationProfileProfile.linux": "Nushell",
+    "terminal.integrated.automationProfileProfile.osx": "Nushell",
+    "terminal.integrated.automationProfileProfile.windows": "Nushell",
+    "terminal.integrated.defaultProfile.linux": "Nushell",
+    "terminal.integrated.defaultProfile.osx": "Nushell",
+    "terminal.integrated.defaultProfile.windows": "Nushell",
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.productIconTheme": "Tabler"
+}
