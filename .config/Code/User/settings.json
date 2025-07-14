@@ -3,6 +3,7 @@
     "editor.fontLigatures": true,
 
     "git.autofetch": true,
+    "git.confirmSync": false,
 
     "terminal.integrated.automationProfileProfile.linux": "Nushell",
     "terminal.integrated.automationProfileProfile.osx": "Nushell",
