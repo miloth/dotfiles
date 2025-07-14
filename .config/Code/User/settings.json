@@ -5,6 +5,8 @@
     "git.autofetch": true,
     "git.confirmSync": false,
 
+    "redhat.telemetry.enabled": false,
+
     "terminal.integrated.automationProfileProfile.linux": "Nushell",
     "terminal.integrated.automationProfileProfile.osx": "Nushell",
     "terminal.integrated.automationProfileProfile.windows": "Nushell",
