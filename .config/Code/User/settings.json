@@ -2,6 +2,8 @@
     "editor.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontLigatures": true,
 
+    "git.autofetch": true,
+
     "terminal.integrated.automationProfileProfile.linux": "Nushell",
     "terminal.integrated.automationProfileProfile.osx": "Nushell",
     "terminal.integrated.automationProfileProfile.windows": "Nushell",
@@ -12,5 +14,5 @@
 
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "catppuccin-mocha",
-    "workbench.productIconTheme": "Tabler"
+    "workbench.productIconTheme": "Tabler",
 }
