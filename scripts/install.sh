@@ -192,7 +192,7 @@ function default-nushell () {
 
 function main () {
     echo "🛤️ SOURCING ENV VARIABLES"
-    source $SCRIPT_DIR/../.env
+    source $SCRIPT_DIR/../.zshenv
 
     echo "🍎 XCODE-SELECT"
     xcode-select-install
