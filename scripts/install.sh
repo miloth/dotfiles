@@ -201,6 +201,19 @@ function default-nushell () {
     ln -sf "$HOME/.config/nushell/env.nu" "$HOME/Library/Application Support/nushell/env.nu"
 }
 
+function tmux-config () {
+    # Install Tmux Plugin Manager
+    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+        echo "Installing Tmux Plugin Manager..."
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    else
+        echo "Tmux Plugin Manager is already installed."
+    fi
+    echo "Install pmux plugins by pressing <prefix> + I (capital I)"
+    echo "Then run the following command to source the config:"
+    echo "tmux source ~/.tmux.conf"
+}
+
 function main () {
     echo "🛤️ SOURCING ENV VARIABLES"
     source $SCRIPT_DIR/../.zshenv
@@ -233,6 +246,9 @@ function main () {
 
     echo "🐚 DEFAULT NUSHELL"
     default-nushell
+
+    echo "TMUX"
+    tmux-config
 }
 
 main
