@@ -176,6 +176,17 @@ function git-credentials () {
 
 function vscode-settings () {
     ln -sf "$HOME/.config/Code/User/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+
+    INSTALLED_EXTENSIONS=$(code --list-extensions)
+    while IFS= read -r line; do
+        if echo "$INSTALLED_EXTENSIONS" | grep -qi "^$line$"; then
+            echo "$line is already installed. Skipping..."
+        else
+            echo "Installing $line..."
+            code --install-extension "$line"
+        fi
+    done < "$SCRIPT_DIR/vscode-extensions.txt"
+    echo "VS Code extensions installed."
 }
 
 function default-nushell () {
