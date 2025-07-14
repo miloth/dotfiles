@@ -63,6 +63,87 @@ function homebrew () {
     brew cleanup
 }
 
+function finder-setup () {
+    defaults write com.apple.finder DisableAllAnimations -bool true
+    defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+    defaults write com.apple.finder ShowStatusBar -bool true
+    defaults write com.apple.finder ShowPathbar -bool true
+    defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+    defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+    defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+    defaults write com.apple.finder WarnOnEmptyTrash -bool false
+    defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+    # Finder: allow text selection in Quick Look
+    defaults write com.apple.finder QLEnableTextSelection -bool true
+    # Keep folders on top when sorting by name
+    # defaults write com.apple.finder _FXSortFoldersFirst -bool true
+    # When performing a search, search the current folder by default
+    defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+    # Disable the warning when changing a file extension
+    # defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+    # Always open everything in Finder's list view.  Use list view in all Finder windows by default. Other codes: `icnv`, `clmv`, `Flwv`
+    defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+    # Expand the following File Info panes: “General”, “Open with”, and “Sharing & Permissions”
+    defaults write com.apple.finder FXInfoPanesExpanded -dict General -bool true OpenWith -bool true Privileges -bool true
+
+    killall Finder
+}
+
+function dock_setup () {
+    # Control which apps end up on the Dock
+    dockutil --no-restart --remove all
+    dockutil --no-restart --add "/Applications/Vivaldi.app"
+    dockutil --no-restart --add "/Applications/Visual Studio Code.app"
+    dockutil --no-restart --add "/Applications/WezTerm.app"
+    dockutil --no-restart --add "/Applications/Signal.app"
+    dockutil --no-restart --add "/Applications/Spotify.app"
+    dockutil --no-restart --add "/System/Applications/System Settings.app"
+    # Folders next to the Trash Can
+    dockutil --no-restart --add "/Volumes/Vault/Downloads"
+
+    # Put dock on the left
+    defaults write com.apple.dock orientation left
+    # Smaller size
+    defaults write com.apple.dock tilesize -int 48
+    # Show indicator lights for open applications in the Dock
+    defaults write com.apple.dock show-process-indicators -bool true
+    # Don’t animate opening applications from the Dock
+    defaults write com.apple.dock launchanim -bool false
+    # Automatically hide and show the Dock
+    defaults write com.apple.dock autohide -bool true
+    defaults write com.apple.dock autohide-time-modifier -float 0.5
+    # Make Dock icons of hidden applications translucent
+    defaults write com.apple.dock showhidden -bool true
+    # Disable hot corners
+    defaults write com.apple.dock wvous-tl-corner -int 0
+    defaults write com.apple.dock wvous-tr-corner -int 0
+    defaults write com.apple.dock wvous-bl-corner -int 0
+    defaults write com.apple.dock wvous-br-corner -int 0
+    # Don't show recently used applications in the Dock
+    defaults write com.apple.dock show-recents -bool false
+
+    killall Dock
+}
+
+function localization () {
+    LANGUAGES=(en it)
+    LOCALE="en_US@rg=gbzzzz"
+    MEASUREMENT_UNITS="Centimeters"
+
+    # Set language and text formats
+    defaults write NSGlobalDomain AppleLanguages -array ${LANGUAGES[@]}
+    defaults write NSGlobalDomain AppleLocale -string "$LOCALE"
+    defaults write NSGlobalDomain AppleMeasurementUnits -string "$MEASUREMENT_UNITS"
+    defaults write NSGlobalDomain AppleMetricUnits -bool true
+
+    # Using systemsetup might give Error:-99, can be ignored (commands still work)
+    # systemsetup manpage: https://ss64.com/osx/systemsetup.html
+
+    # Set the time zone
+    sudo defaults write /Library/Preferences/com.apple.timezone.auto Active -bool YES
+    sudo systemsetup -setusingnetworktime on
+}
+
 function run-stow () {
     cd ~/dotfiles
     stow .
@@ -121,6 +202,11 @@ function main () {
 
     echo "🍺 HOMEBREW"
     homebrew
+
+    echo "📁 FINDER, DOCK AND LOCALIZATION"
+    finder-setup
+    dock_setup
+    localization
 
     echo "🦀 RUST"
     rustup-install
