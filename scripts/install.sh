@@ -144,6 +144,15 @@ function localization () {
     sudo systemsetup -setusingnetworktime on
 }
 
+function rustup-install () {
+    if ! which rustup &>/dev/null; then
+        echo "Select a custom rustup installation without adding to PATH"
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    else
+        echo "Rust is already installed."
+    fi
+}
+
 function run-stow () {
     cd ~/dotfiles
     stow .
@@ -167,15 +176,6 @@ function git-credentials () {
 
 function vscode-settings () {
     ln -sf "$HOME/.config/Code/User/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-}
-
-function rustup-install () {
-    if ! which rustup &>/dev/null; then
-        echo "Select a custom rustup installation without adding to PATH"
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    else
-        echo "Rust is already installed."
-    fi
 }
 
 function default-nushell () {
