@@ -189,13 +189,13 @@ function vscode-settings () {
     echo "VS Code extensions installed."
 }
 
-function default-nushell () {
+function add-and-configure-nushell () {
     # Check from here:
     # https://askubuntu.com/a/1422254
     if ! grep -wq "$(which nu)" /etc/shells; then
         which nu | sudo tee -a /etc/shells
     fi
-    chsh -s "$(which nu)"
+    # chsh -s "$(which nu)"
 
     ln -sf "$HOME/.config/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu"
     ln -sf "$HOME/.config/nushell/env.nu" "$HOME/Library/Application Support/nushell/env.nu"
@@ -244,8 +244,8 @@ function main () {
     echo "📝 VSCODE SETTINGS"
     vscode-settings
 
-    echo "🐚 DEFAULT NUSHELL"
-    default-nushell
+    echo "🐚 CONFIGURE NUSHELL"
+    add-and-configure-nushell
 
     echo "TMUX"
     tmux-config
