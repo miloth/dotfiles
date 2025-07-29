@@ -16,7 +16,6 @@ brew "tmux"
 brew "tree"
 brew "uv"
 
-cask "appcleaner"
 cask "bitwarden"
 cask "brave-browser"
 cask "discord"
