@@ -12,6 +12,7 @@ ignorePaths:
   - scripts/vscode-extensions.txt
 
 words:
+  - cvsignore
   - dockutil
   - killall
   - miloth
