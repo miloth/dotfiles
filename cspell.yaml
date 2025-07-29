@@ -1,0 +1,21 @@
+dictionaries:
+  - project
+  - en_US
+  - softwareTerms
+  - bash
+  - filetypes
+  - fonts
+  - cpp
+  - rust
+
+ignorePaths:
+  - scripts/vscode-extensions.txt
+
+words:
+  - dockutil
+  - killall
+  - miloth
+  - nushell
+  - recents
+  - restow
+  - ssh-keygen

@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# cSpell: ignore autohide clmv Flwv gbzzzz gpgsign icnv installondemand launchanim Nlsv pmux setusingnetworktime
+# cSpell: ignore showhidden ShowPathbar signingkey tilesize tlsv1 wvous
+
 SCRIPT_DIR="${0:A:h}"
 
 function xcode-select-install () {

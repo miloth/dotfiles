@@ -1,3 +1,5 @@
+# cSpell: ignore appcleaner bitwarden imageoptim keepingyouawake mullvad taplo temurin wezterm
+
 brew "carapace"
 brew "cspell"
 brew "dockutil"
