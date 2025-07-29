@@ -1,60 +1,38 @@
-- Run these commands in your terminal to add Homebrew to your PATH:
-    echo >> /Users/USER/.zprofile
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/USER/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+# Miloth's macOS Dotfiles
 
+## Quick Start
 
-Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
-Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+Steps:
 
+- Clone the repo.
+- Double check the:
+  - Apps to be installed in `scripts/Brewfile`.
+  - VSCode extensions in `scripts/vscode-extensions.txt`.
+- Run `scripts/install.sh`, prompting the `sudo` password when requested.
+- `cd` to the root of this project if not already.
+- Run `stow .`.
 
-Add the following to your .bash_profile, .bashrc or .zshrc:
+If you update the `stow` file list with `stow . --restow`.
 
-  eval $(thefuck --alias)
+## Still Manual
 
-For other shells, check https://github.com/nvbn/thefuck/wiki/Shell-aliases
+- Login to Vivaldi and other apps.
+- Disable Spotlight's shortcut and assign it to RayCast.
 
+## Additional Info
 
-TheFuck
+This is my choice of dotfiles. The setup leverages:
 
+- [`stow`](https://www.gnu.org/software/stow/) to symlink config files, making it easy to version them with `git`.
+- [Homebrew](https://brew.sh) to install all the required applications, cli tools and fonts.
 
-app clean Library/Containers
+The setup will:
 
-
-Preemptively ask for sudo
-
-
-In the Rust development environment, all tools are installed to the ~/.cargo/bin directory, and this is where you will find the Rust toolchain, including rustc, cargo, and rustup.
-
-
-Add LICENSE.MD
-
-
-DONE
-
-Bit warden
-Google drive
-Keeping you awake
-Discord
-Imageoptim
-Onyx instead of app cleaner
-Postman
-Signal
-Spotify
-Vivaldi
-VLC
-Vscode
-Wezterm
-
-
-TODO
-
-Xcode
-Winows app
-GitHub
-Obsidian
-Unarchiver
-Geotag
-JDownloader adfree
-Plex player
-Lightroom
+- Configure Finder and the Dock.
+- Make Vivaldi the default browser.
+- Login to GitHub.
+- Preinstall a suite of dev tools, like Rust, Python (using `uv`), octave (for a sane calculator environment).
+- Wezterm as the terminal emulator of choice, configure `zsh` and `nushell` paths and environment variables.
+- Nerdfonts!
+- VSCode configured with settings and extensions.
+- RayCast instead of Spotlight.
