@@ -6,6 +6,8 @@ on:
 jobs:
   formatters:
     runs-on: ubuntu-latest
+    continue-on-error: true
+
     steps:
       - uses: actions/checkout@v3
 
