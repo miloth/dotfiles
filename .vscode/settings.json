@@ -1,5 +1,14 @@
 {
-    "[markdown]": {
-        "editor.formatOnSave": true,
-    }
+  "editor.formatOnSave": true,
+
+  "[jsonc][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "davidanson.vscode-markdownlint"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "shellformat.flag": "-s"
+  }
 }
