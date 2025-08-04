@@ -23,6 +23,7 @@ _darcs
 .DS_Store
 
 .github
+.markdownlint.yaml
 .shellcheckrc
 .vscode
 cspell.yaml
