@@ -4,6 +4,7 @@ charliermarsh.ruff
 davidanson.vscode-markdownlint
 detachhead.basedpyright
 editorconfig.editorconfig
+esbenp.prettier-vscode
 fill-labs.dependi
 foxundermoon.shell-format
 github.copilot
