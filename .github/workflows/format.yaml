@@ -4,22 +4,25 @@ on:
   - push
 
 jobs:
-  formatters:
+  markdownlint:
     runs-on: ubuntu-latest
-    continue-on-error: true
-
     steps:
       - uses: actions/checkout@v3
-
-      - name: "markdownlint"
+      - name: markdownlint
         uses: DavidAnson/markdownlint-cli2-action@v20
 
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
       - name: prettier
         uses: creyD/prettier_action@v4.6
         with:
           dry: True
           prettier_options: --check
 
+  sh-checker:
+    runs-on: ubuntu-latest
+    steps:
       - name: "sh-checker"
         uses: luizm/action-sh-checker@master
         env:
