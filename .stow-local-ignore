@@ -22,5 +22,8 @@ _darcs
 
 .DS_Store
 
+.github
+.vscode
+cspell.yaml
 scripts
-install.sh
+TODO.md

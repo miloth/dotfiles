@@ -1,7 +1,8 @@
 local wezterm = require "wezterm"
 local config = wezterm.config_builder()
 
-config.default_prog = { "/opt/homebrew/bin/nu" }
+-- config.default_prog = { "/opt/homebrew/bin/nu" }
+config.default_prog = { "/opt/homebrew/bin/tmux", "new-session", "-A", "-s", "Atlas"}
 
 config.check_for_updates = true
 config.automatically_reload_config = true

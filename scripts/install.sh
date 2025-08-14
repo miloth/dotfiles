@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# cSpell: ignore autohide clmv Flwv gbzzzz gpgsign icnv installondemand launchanim Nlsv pmux setusingnetworktime
+# cSpell: ignore showhidden ShowPathbar signingkey tilesize tlsv1 wvous
+
 SCRIPT_DIR="${0:A:h}"
 
 function xcode-select-install () {
@@ -189,16 +192,29 @@ function vscode-settings () {
     echo "VS Code extensions installed."
 }
 
-function default-nushell () {
+function add-and-configure-nushell () {
     # Check from here:
     # https://askubuntu.com/a/1422254
     if ! grep -wq "$(which nu)" /etc/shells; then
         which nu | sudo tee -a /etc/shells
     fi
-    chsh -s "$(which nu)"
+    # chsh -s "$(which nu)"
 
     ln -sf "$HOME/.config/nushell/config.nu" "$HOME/Library/Application Support/nushell/config.nu"
     ln -sf "$HOME/.config/nushell/env.nu" "$HOME/Library/Application Support/nushell/env.nu"
+}
+
+function tmux-config () {
+    # Install Tmux Plugin Manager
+    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+        echo "Installing Tmux Plugin Manager..."
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    else
+        echo "Tmux Plugin Manager is already installed."
+    fi
+    echo "Install pmux plugins by pressing <prefix> + I (capital I)"
+    echo "Then run the following command to source the config:"
+    echo "tmux source ~/.tmux.conf"
 }
 
 function main () {
@@ -231,8 +247,11 @@ function main () {
     echo "📝 VSCODE SETTINGS"
     vscode-settings
 
-    echo "🐚 DEFAULT NUSHELL"
-    default-nushell
+    echo "🐚 CONFIGURE NUSHELL"
+    add-and-configure-nushell
+
+    echo "TMUX"
+    tmux-config
 }
 
 main
