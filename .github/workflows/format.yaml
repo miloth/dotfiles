@@ -1,0 +1,30 @@
+name: "Check formatting"
+on:
+  - pull_request
+  - push
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v20
+
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prettier
+        uses: creyD/prettier_action@v4.6
+        with:
+          dry: True
+          prettier_options: --check
+
+  sh-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "sh-checker"
+        uses: luizm/action-sh-checker@master
+        env:
+          SHELLCHECK_OPTS: -e SC1071
+          SHFMT_OPTS: -s

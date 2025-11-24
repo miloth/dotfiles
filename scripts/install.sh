@@ -5,31 +5,31 @@
 
 SCRIPT_DIR="${0:A:h}"
 
-function xcode-select-install () {
+function xcode-select-install() {
     # Adapted from:
     # https://developer.apple.com/forums/thread/698954?answerId=723615022#723615022
     echo "Checking Command Line Tools for Xcode"
     # Only run if the tools are not installed yet
     # To check that try to print the SDK path
-    xcode-select -p &> /dev/null
+    xcode-select -p &>/dev/null
     if [ $? -ne 0 ]; then
         echo "Command Line Tools for Xcode not found. Installing from softwareupdate…"
         # This temporary file prompts the 'softwareupdate' utility to list the Command Line Tools
-        touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+        touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
         PROD=$(softwareupdate -l | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')
-        softwareupdate -i "$PROD" --verbose;
+        softwareupdate -i "$PROD" --verbose
     else
         echo "Command Line Tools for Xcode already installed."
     fi
 }
 
-function rosetta () {
+function rosetta() {
     # Source:
     # https://apple.stackexchange.com/a/464165
-    if [[ `uname -m` != "arm64" ]] ; then
+    if [[ $(uname -m) != "arm64" ]]; then
         echo "not arm64"
     else
-        if ! (arch -arch x86_64 uname -m > /dev/null) ; then
+        if ! (arch -arch x86_64 uname -m >/dev/null); then
             softwareupdate --install-rosetta --agree-to-license
         else
             echo "arm64: Rosetta already installed"
@@ -37,7 +37,7 @@ function rosetta () {
     fi
 }
 
-function homebrew () {
+function homebrew() {
     # Install Homebrew if not available
     if ! command -v "/opt/homebrew/bin/brew" &>/dev/null; then
         echo "Homebrew not installed. Installing Homebrew."
@@ -66,7 +66,7 @@ function homebrew () {
     brew cleanup
 }
 
-function finder-setup () {
+function finder-setup() {
     defaults write com.apple.finder DisableAllAnimations -bool true
     defaults write NSGlobalDomain AppleShowAllExtensions -bool true
     defaults write com.apple.finder ShowStatusBar -bool true
@@ -92,7 +92,7 @@ function finder-setup () {
     killall Finder
 }
 
-function dock_setup () {
+function dock_setup() {
     # Control which apps end up on the Dock
     dockutil --no-restart --remove all
     dockutil --no-restart --add "/Applications/Vivaldi.app"
@@ -128,7 +128,7 @@ function dock_setup () {
     killall Dock
 }
 
-function localization () {
+function localization() {
     LANGUAGES=(en it)
     LOCALE="en_US@rg=gbzzzz"
     MEASUREMENT_UNITS="Centimeters"
@@ -147,7 +147,7 @@ function localization () {
     sudo systemsetup -setusingnetworktime on
 }
 
-function rustup-install () {
+function rustup-install() {
     if ! which rustup &>/dev/null; then
         echo "Select a custom rustup installation without adding to PATH"
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -156,7 +156,7 @@ function rustup-install () {
     fi
 }
 
-function run-stow () {
+function run-stow() {
     cd ~/dotfiles
     stow .
     cd $SCRIPT_DIR
@@ -165,7 +165,7 @@ function run-stow () {
     source ~/.zshrc
 }
 
-function git-credentials () {
+function git-credentials() {
     echo "Setting up Git credentials..."
     git config --global user.name $USER
     git config --global user.email "$USER@users.noreply.github.com"
@@ -177,7 +177,7 @@ function git-credentials () {
     git config --global user.signingkey ~/.ssh/id_ed25519.pub
 }
 
-function vscode-settings () {
+function vscode-settings() {
     ln -sf "$HOME/.config/Code/User/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 
     INSTALLED_EXTENSIONS=$(code --list-extensions)
@@ -188,11 +188,11 @@ function vscode-settings () {
             echo "Installing $line..."
             code --install-extension "$line"
         fi
-    done < "$SCRIPT_DIR/vscode-extensions.txt"
+    done <"$SCRIPT_DIR/vscode-extensions.txt"
     echo "VS Code extensions installed."
 }
 
-function add-and-configure-nushell () {
+function add-and-configure-nushell() {
     # Check from here:
     # https://askubuntu.com/a/1422254
     if ! grep -wq "$(which nu)" /etc/shells; then
@@ -204,7 +204,7 @@ function add-and-configure-nushell () {
     ln -sf "$HOME/.config/nushell/env.nu" "$HOME/Library/Application Support/nushell/env.nu"
 }
 
-function tmux-config () {
+function tmux-config() {
     # Install Tmux Plugin Manager
     if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
         echo "Installing Tmux Plugin Manager..."
@@ -217,7 +217,7 @@ function tmux-config () {
     echo "tmux source ~/.tmux.conf"
 }
 
-function main () {
+function main() {
     echo "🛤️ SOURCING ENV VARIABLES"
     source $SCRIPT_DIR/../.zshenv
 
