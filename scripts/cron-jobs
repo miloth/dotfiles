@@ -1,0 +1,5 @@
+* * * * * /Users/tmiletti/dotfiles/.tmux/scripts/bus.sh > /Users/tmiletti/.bus_home
+0 11 * * * brew update && brew upgrade && brew cleanup && brew autoremove
+0 11 * * * code --update-extensions
+0 11 * * * zinit self-update && zinit update --all
+0 11 * * * uv tool upgrade --all
