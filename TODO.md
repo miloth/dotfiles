@@ -9,10 +9,6 @@ REMOVE DOUBLE SPACEBAR SHORTCUT
 Disable this behavior by setting HOMEBREW_NO_INSTALL_CLEANUP.
 Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
 
-Add the following to your .bash_profile, .bashrc or .zshrc:
-
-  eval $(thefuck --alias)
-
 For other shells, check <https://github.com/nvbn/thefuck/wiki/Shell-aliases>
 
 TheFuck
@@ -25,30 +21,12 @@ In the Rust development environment, all tools are installed to the ~/.cargo/bin
 
 Add LICENSE.MD
 
-DONE
-
-Bit warden
-Google drive
-Keeping you awake
-Discord
-Imageoptim
-Onyx instead of app cleaner
-Postman
-Signal
-Spotify
-Vivaldi
-VLC
-Vscode
-Wezterm
-
 TODO
 
 Xcode
-Winows app
+Windows app
 GitHub
 Obsidian
-Unarchiver
-Geotag
-JDownloader adfree
+JDownloader ad-free
 Plex player
-Lightroom
+Adobe
