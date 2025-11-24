@@ -4,7 +4,9 @@ charliermarsh.ruff
 davidanson.vscode-markdownlint
 detachhead.basedpyright
 editorconfig.editorconfig
+esbenp.prettier-vscode
 fill-labs.dependi
+foxundermoon.shell-format
 github.copilot
 gruntfuggly.todo-tree
 ibm.output-colorizer
@@ -23,5 +25,6 @@ streetsidesoftware.code-spell-checker
 sumneko.lua
 tamasfe.even-better-toml
 thenuprojectcontributors.vscode-nushell-lang
+timonwong.shellcheck
 trond-snekvik.simple-rst
 zguolee.tabler-icons

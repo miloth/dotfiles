@@ -1,21 +1,63 @@
 {
-    "editor.fontFamily": "JetBrainsMono Nerd Font",
-    "editor.fontLigatures": true,
+  "window.commandCenter": true,
 
-    "git.autofetch": true,
-    "git.confirmSync": false,
+  "editor.fontFamily": "JetBrainsMono NF",
+  "editor.fontLigatures": "'onum'",
+  "editor.fontWeight": "normal",
+  "editor.inlineSuggest.enabled": true,
 
-    "redhat.telemetry.enabled": false,
+  "editor.formatOnSave": true,
 
-    "terminal.integrated.automationProfileProfile.linux": "Nushell",
-    "terminal.integrated.automationProfileProfile.osx": "Nushell",
-    "terminal.integrated.automationProfileProfile.windows": "Nushell",
-    "terminal.integrated.defaultProfile.linux": "Nushell",
-    "terminal.integrated.defaultProfile.osx": "Nushell",
-    "terminal.integrated.defaultProfile.windows": "Nushell",
-    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.defaultCloneDirectory": "${userHome}/Documents/Coding",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
 
-    "workbench.colorTheme": "Catppuccin Mocha",
-    "workbench.iconTheme": "catppuccin-mocha",
-    "workbench.productIconTheme": "Tabler",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+
+  "terminal.integrated.fontFamily": "JetBrainsMono NF",
+  "terminal.integrated.defaultProfile.osx": "tmux-shell",
+  "terminal.integrated.profiles.osx": {
+    "tmux-shell": {
+      "path": "tmux",
+      "args": ["new-session", "-A", "-s", "${workspaceFolderBasename}"]
+    }
+  },
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+
+  "redhat.telemetry.enabled": false,
+
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.productIconTheme": "Tabler",
+  "workbench.startupEditor": "none",
+
+  "[css][scss][html][javascript][javascriptreact][json][jsonc][typescript][typescriptreact][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3.12",
+  "python.languageServer": "None",
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
 }

@@ -12,11 +12,23 @@ ignorePaths:
   - scripts/vscode-extensions.txt
 
 words:
+  - babichenko
+  - commitlint
   - cvsignore
   - dockutil
+  - donotShowInfoMsg
+  - donotVerifyTags
+  - fixit
+  - geotag
+  - imager
   - killall
   - miloth
+  - nerdfonts
   - nushell
   - recents
   - restow
+  - rustc
+  - shellenv
   - ssh-keygen
+  - wezterm
+  - zinit
