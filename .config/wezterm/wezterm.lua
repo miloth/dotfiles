@@ -2,7 +2,7 @@ local wezterm = require "wezterm"
 local config = wezterm.config_builder()
 
 -- config.default_prog = { "/opt/homebrew/bin/nu" }
-config.default_prog = { "/opt/homebrew/bin/tmux", "new-session", "-A", "-s", "Atlas"}
+config.default_prog = { "/opt/homebrew/bin/tmux", "new-session", "-A", "-s", "Atlas" }
 
 config.check_for_updates = true
 config.automatically_reload_config = true
@@ -12,14 +12,17 @@ config.enable_tab_bar = false
 config.initial_cols = 180
 config.initial_rows = 50
 
-config.color_scheme = "Catppuccin Mocha"
+config.font = wezterm.font "JetBrainsMono NF"
+
+config.color_scheme_dirs = { '/Users/tmiletti/.config/wezterm/colors' }
+config.color_scheme = "Tokyo Night"
 
 config.keys = {
-    { mods = "OPT", key = "LeftArrow", action = wezterm.action.SendKey({ mods = "ALT", key = "b"}) },
-    { mods = "OPT", key = "RightArrow", action = wezterm.action.SendKey({ mods = "ALT", key = "f"}) },
-    { mods = "CMD", key = "LeftArrow", action = wezterm.action.SendKey({ mods = "CTRL", key = "a"}) },
-    { mods = "CMD", key = "RightArrow", action = wezterm.action.SendKey({ mods = "CTRL", key = "e"}) },
-    { mods = "CMD", key = "Backspace", action = wezterm.action.SendKey({ mods = "CTRL", key = "u"}) },
+  { mods = "OPT", key = "LeftArrow",  action = wezterm.action.SendKey({ mods = "ALT", key = "b" }) },
+  { mods = "OPT", key = "RightArrow", action = wezterm.action.SendKey({ mods = "ALT", key = "f" }) },
+  { mods = "CMD", key = "LeftArrow",  action = wezterm.action.SendKey({ mods = "CTRL", key = "a" }) },
+  { mods = "CMD", key = "RightArrow", action = wezterm.action.SendKey({ mods = "CTRL", key = "e" }) },
+  { mods = "CMD", key = "Backspace",  action = wezterm.action.SendKey({ mods = "CTRL", key = "u" }) },
 }
 
 -- URLs in Markdown files are not handled properly by default

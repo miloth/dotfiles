@@ -62,6 +62,7 @@ function homebrew() {
     brew update
     brew upgrade
     brew upgrade --cask
+    brew tap eugene-babichenko/fixit
     brew bundle install --file $SCRIPT_DIR/Brewfile --upgrade
     brew cleanup
 }
@@ -250,8 +251,11 @@ function main() {
     echo "🐚 CONFIGURE NUSHELL"
     add-and-configure-nushell
 
-    echo "TMUX"
+    echo "🖥️ TMUX"
     tmux-config
+
+    echo "🔄 CRON JOBS"
+    crontab $SCRIPT_DIR/cron-jobs
 }
 
 main
