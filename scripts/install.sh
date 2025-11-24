@@ -250,7 +250,7 @@ function main() {
     echo "🐚 CONFIGURE NUSHELL"
     add-and-configure-nushell
 
-    echo "TMUX"
+    echo "🖥️ TMUX"
     tmux-config
 }
 
